@@ -7,8 +7,8 @@ db.Guilds.findOne({"_id": message.guild.id }, function(erra, sysop) {
 
 
 const embed = new Discord.RichEmbed()
-.setTitle(`Help | Ajuda Aquabot`)
-.setThumbnail(`https://cdn.discordapp.com/attachments/442346665052209153/494654244876451840/SysopLogoPremium.png`)
+.setTitle(`Help | Ajuda Sysop`)
+.setThumbnail(`https://cdn.discordapp.com/attachments/442346665052209153/496102324792721409/SysopLogo2019.png`)
 .setDescription(`**${sysop.setprefix}help mod** - Para ver meus comandos de Moderação.\n**${sysop.setprefix}help social** - Para ver meus comandos Sociais.\n**${sysop.setprefix}help registros** - Para ver meus comandos de Registro\n**${sysop.setprefix}help economia** - Para ver meus comandos de Economia\n**${sysop.setprefix}help musica** - Para ver meus comandos de Música.`)
 .setFooter(message.guild.name + ' Requisitado por: ' + message.author.username)
 .setColor('#15ffaf');
