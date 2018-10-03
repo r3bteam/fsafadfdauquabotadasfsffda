@@ -11,10 +11,10 @@ exports.run = (Sysop, message, args) => {
       return message.channel.send(`<:sysalerta:469789950938841088> | Opa ${message.author} este perfil está impossibilitado de receber reputações no momento.`)  
     */
    let user = message.mentions.users.first();
-   if (!user) return message.reply(`mencione alguém para remover reputação.`)
+   if (!user) return message.reply(`mencione alguém para remover rep.`)
       
-    if (message.mentions.users.first().id == message.author.id) return message.channel.send(`<:xguardian:476061993368027148> | Epa ${message.author}, Você não pode remover reputações de si mesmo!`);
-        if (message.mentions.users.first().bot) return message.channel.send(`<:xguardian:476061993368027148> | ${message.author} Bem, isto é confuso. Você não pode remover reputações de um bot**`);
+    if (message.mentions.users.first().id == message.author.id) return message.channel.send(`<:xguardian:476061993368027148> | Epa ${message.author}, Você não pode remover pontos de reputação de você mesmo.`);
+        if (message.mentions.users.first().bot) return message.channel.send(`<:xguardian:476061993368027148> | ${message.author} Bem, isto é confuso. Você não pode remover reputações de um bot.**`);
 
         database.Users.findOne({
             "_id": message.author.id
@@ -52,7 +52,7 @@ console.log(current);
                  units: ['h', 'm', 's']
     };
     
-    message.channel.send(`<a:swbouce:488754110175379456> **│** ${message.author}! Você precisa esperar **${humanize(restante, humanize_config)}** antes de negativar alguém!`);
+    message.channel.send(`<a:swbouce:488754110175379456> **│** ${message.author}! Você precisa esperar **${humanize(restante, humanize_config)}** antes de remover outro ponto de reputação.`);
 }
                     } else {
 
@@ -71,7 +71,6 @@ console.log(current);
                             rep: 0,
                             repTime: 0,
                             tempneg: 0,
-                            neg: 0,
                         })
 
                         pessoa.save()
@@ -92,8 +91,6 @@ console.log(current);
                         warn: 0,
                         rep: 0,
                         repTime: 0,
-                        tempneg: 0,
-                        neg: 0,
                     })
 
                     pessoa.save()
