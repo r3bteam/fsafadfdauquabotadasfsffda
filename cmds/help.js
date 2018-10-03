@@ -41,8 +41,8 @@ case 'mod': {
 \`>>\` **texto** - Defina o texto do contador.
 \`>>\` **mute** [Manutenção] - Mute um usuário no servidor.
 \`>>\` **unmute** - Desmute um usuário no servidor.
-\`>>\` **striker** [Manutenção] - Dê advertência em um usuários especifico.
-\`>>\` **addrole** - Dê um cargo especifico para um usuário especifico ou um cargo especifico para todos do servidor 
+\`>>\` **striker**  - Dê advertência em um usuários especifico.
+\`>>\` **addrole** [MANUTENÇÃO] - Dê um cargo especifico para um usuário especifico ou um cargo especifico para todos do servidor 
 \`>>\` **level on/off ** - Para habilitar ou desabilitar o sistema de levels.
 `)
         .setColor('#15ffaf');
@@ -106,7 +106,8 @@ case 'registros': {
 \`>>\` **server** - Veja informações do servidor.
 \`>>\` **thumb** - Visualize o avatar do Servidor.
 \`>>\` **tag** - Pesquise por usuários com um descriminator(tag) especifica.
-\`>>\` **userinfo** - Para ver informações de um usuário.`)
+\`>>\` **userinfo** - Para ver informações de um usuário.
+\`>>\` **roleinfo** - Para ver informações de um cargo no servidor.`)
         .setColor('#15ffaf');
         message.author.send({embed}).then(sentMsg => sentMsg.delete(130000));
         return;
