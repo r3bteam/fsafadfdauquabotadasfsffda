@@ -31,11 +31,11 @@ exports.run = (Sysop, message, args) => {
 
                     let current = documento.tempneg;
                     if (current == 0)
-                    current = Date.now() - 60 * 60 * 1E3; // primeiro rep
+                    current = Date.now() - 24 * 60 * 60 * 1E3; // primeiro rep
 console.log(current);
 
                     if (new Date() >= current) {
-                    documento.tempneg = Date.now() + 60 * 60 * 1E3;
+                    documento.tempneg = Date.now() + 24 * 60 * 60 * 1E3;
                     documento.save();
 
                         doc2.rep -= 1
