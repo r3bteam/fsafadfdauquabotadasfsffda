@@ -30,22 +30,8 @@ const embed = new Discord.RichEmbed()
 
 
 database.Guilds.findOne({ "_id": message.guild.id}, function(erro, documento) {
-    if (!documento) {
-        var server = new database.Guilds({
-            _id: message.guild.id,
-             convites: false,
-             sugestao: '',
-             welcome: '',
-             words: [],
-             autorole: '',
-             welcomeChannel: '',
-             byeChannel: '',
-             dm: '',
-        });
-        server.save();
-        message.reply('<:SysopLogoEMOI:439565791357042700> Um histórico foi criado. Use o comando novamente!');
-
-        } else {
+    if (documento) {
+    
         if (!mensagem) {
     if (!documento.autorole)
    return message.channel.send('<:sysalerta:469789950938841088> Este servidor não possui autorole. Use `sy!autorole help`');
@@ -68,7 +54,22 @@ database.Guilds.findOne({ "_id": message.guild.id}, function(erro, documento) {
         
     }
             
+        } else {
+            var server = new database.Guilds({
+            _id: message.guild.id,
+             convites: false,
+             sugestao: '',
+             welcome: '',
+             words: [],
+             autorole: '',
+             welcomeChannel: '',
+             byeChannel: '',
+             dm: '',
+        });
+        server.save();
+        message.reply('<:SysopLogoEMOI:439565791357042700> Um histórico foi criado. Use o comando novamente!');
+
         }
-});
+}); 
   });
 };
