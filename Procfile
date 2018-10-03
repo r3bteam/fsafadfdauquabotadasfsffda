@@ -1,1 +1,1 @@
-worker: node sysop.js
+worker: node shard.js
