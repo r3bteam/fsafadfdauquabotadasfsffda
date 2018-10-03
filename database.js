@@ -24,6 +24,10 @@ var User = new Schema({
        type: Number,
         default: 0,
     },
+    tempneg: {
+        type: Number,
+        default: 0,
+    },
     star: {
         type: Number,
         default: 0,
