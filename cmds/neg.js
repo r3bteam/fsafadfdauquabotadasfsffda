@@ -49,7 +49,7 @@ console.log(current);
                  conjunction: ' e ',
                  serialComma: false,
                  round: true,
-                 units: ['h', 'm', 's']
+                 units: ['d','h', 'm', 's']
     };
     
     message.channel.send(`<a:swbouce:488754110175379456> **│** ${message.author}! Você precisa esperar **${humanize(restante, humanize_config)}** antes de remover outro ponto de reputação.`);
