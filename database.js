@@ -33,6 +33,11 @@ var User = new Schema({
         default: 0,
         
     },
+    aboboras: {
+        type: Number,
+        default: 0,
+        
+    },
     starTime: {
         type: Number,
         default: 0,
