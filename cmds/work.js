@@ -60,6 +60,12 @@ exports.run = (Sysop, message, suffix) => {
                             dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
                             documento.emerald += dayRDM;
                             documento.save();
+                        } else if (prc <= 80) {
+                            premio = `abóboras :jack_o_lantern:`;
+                            quantidade = 50;
+                            dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
+                            documento.aboboras += dayRDM;
+                            documento.save();
                         }
                        
                         let user = message.mentions.users.first() || message.author;
@@ -71,7 +77,7 @@ exports.run = (Sysop, message, suffix) => {
                                     .addField(`**Salário!**`,` <a:festa:461509706763206657> Você ganhou: **${dayRDM} ${premio}** .`, false)
                                     .setColor('#36393E');
                                 value.edit(embed);
-                            }, 3000);
+                            }, 2000);
                         });
                     } else {
                              let restante = current - Date.now();
@@ -96,6 +102,7 @@ exports.run = (Sysop, message, suffix) => {
                         containers: 0,
                         nextDay: 0,
                         daily: 0,
+                        aboboras: 0,
                     });
                     pessoa.save();
                 }
