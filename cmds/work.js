@@ -36,7 +36,7 @@ exports.run = (Sysop, message, suffix) => {
                             dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
                             documento.rubys += dayRDM;
                             documento.save();
-                        } else if (prc <= 80) {
+                        } else if (prc <= 60) {
                             premio = `sycoins <:Sycoins:469789351358889984>`;
                             quantidade = 20000;
                             dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
