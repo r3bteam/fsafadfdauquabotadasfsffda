@@ -30,6 +30,12 @@ exports.run = (Sysop, message, suffix) => {
                             dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
                             documento.containers += dayRDM;
                             documento.save();
+                         } else if (prc <= 80) {
+                            premio = `abóboras :jack_o_lantern:`;
+                            quantidade = 50;
+                            dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
+                            documento.aboboras += dayRDM;
+                            documento.save();
                         } else  if (prc <= 40) {
                             premio = `Sy Crystal <:sysopcrystal:482651147111366656>`;
                             quantidade = 15000;
@@ -59,12 +65,6 @@ exports.run = (Sysop, message, suffix) => {
                             quantidade = 2000;
                             dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
                             documento.emerald += dayRDM;
-                            documento.save();
-                        } else if (prc <= 80) {
-                            premio = `abóboras :jack_o_lantern:`;
-                            quantidade = 50;
-                            dayRDM = Math.round(Math.random() * parseInt(quantidade) + 1);
-                            documento.aboboras += dayRDM;
                             documento.save();
                         }
                        
