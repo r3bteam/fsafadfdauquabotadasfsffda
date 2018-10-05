@@ -41,7 +41,7 @@ else badge2 = `${documento.badgep2}`;
                  Jimp.read(`./badges/${badge2}.png`).then(function(emblema2) {
                    // Jimp.read(user.username).then(function(user) {
                     Jimp.read(`${user.avatarURL}`).then(function(avatar) {
-                      Jimp.read("https://cdn.discordapp.com/attachments/393818943246172164/486711452368109579/PerfilSys.png").then(function(perfil) {
+                      Jimp.read("https://cdn.discordapp.com/attachments/485376421271961600/497579590156288022/PrSys_CardPerfil.png").then(function(perfil) {
                         Jimp.read(`./border/${documento.borderp}.png`).then(function(marco) {
                          
                               Jimp.read(`${imgcolor[user.presence.status]}`).then(function(status) {
@@ -52,49 +52,51 @@ else badge2 = `${documento.badgep2}`;
                           //  serverIcon.resize(40, 40);
                             mess.resize(40, 40);
                         //    serverIcon.mask(mess, 0, 0);
-                            avatar.resize(135, 135);
-                            mascara.resize(135, 135);
-                            marco.resize(135, 135);
+                            avatar.resize(112, 112);
+                            mascara.resize(112, 112);
+                            marco.resize(112, 112);
                             avatar.mask(mascara, 0, 0);
                           //  mascara.mask(mascara, 0, 0);
                             background.resize(770, 490);
-                           emblema.resize(44, 37);
-                           emblema2.resize(44, 37);
+                           emblema.resize(37, 29);
+                           emblema2.resize(37, 29);
                         
                             status.resize(35, 35);
                         //  pau.resize(9,490)
 
-                            img.composite(background, 0, 0);
+                            img.composite(background, 0, 113);
                             img.composite(perfil, 0, 0);
-                            img.composite(avatar, 13, 3);
-                            img.composite(marco, 13, 3);
+                            img.composite(avatar, 13, 118);
+                            img.composite(marco, 13, 118);
                            // img.composite(mascara, 15, 14);
-                         img.composite(emblema, 155, 67);
-                          img.composite(emblema2, 205, 67);
+                           img.composite(emblema, 155, 170);
+                          img.composite(emblema2, 205, 170);
 
                           //  img.composite(serverIcon, 29, 18);
-                            img.composite(status, 115, 85);
+                            img.composite(status, 90, 185);
                          // img.print(user, 415, 303);
 
-                            img.print(letra, 150, 30, `${user.username}#${user.discriminator}`);
+                            img.print(letra, 150, 130, `${user.username}#${user.discriminator}`);
                           //  img.print(letra2, 78, 29, `${server.name}`);
                          //   img.print(letra, 690, 392, `${user.discriminator}`);
                          //   img.print(letra2, 690, 227, `${documento.rpup}`);
-                            img.print(letra2, 580, 494, `${documento.casou}`);
+                            img.print(letra2, 520, 85, `${documento.casou}`);
                           //  img.print(letra2, 660, 360, `Total de: ${documento.adv}`);
-                            img.print(letra, 650, 7, `${documento.lvll}`);
-                            img.print(letra, 620, 45, `${Number(documento.eexp).toLocaleString()}`);
-                            img.print(letra, 660, 85, `${parseInt(documento.eexp/(documento.lvll * 700 ) *100)}%`);
+                          //  img.print(letra, 650, 7, `${documento.lvll}`);
+                         //   img.print(letra, 620, 45, `${Number(documento.eexp).toLocaleString()}`);
+                           // img.print(letra, 660, 85, `${parseInt(documento.eexp/(documento.lvll * 700 ) *100)}%`);
                        // img.print(letra2, 625, 28, `${Number(documento.emerald).toLocaleString()}`);
                          // img.print(letra, 160, 415, `${Number(documento.containers).toLocaleString()}`);
                            // img.print(letra2, 230, 28, `${Number(documento.coins).toLocaleString()}`);
                            //img.print(letra2, 410, 28, `${Number(documento.rubys).toLocaleString()}`);
-                            img.print(letra2, 310, 493, `${Number(documento.rep).toLocaleString()} REPS`);
-                            img.print(letra2, 165, 493, `${Number(documento.star).toLocaleString()}`);
-                            img.print(letra2, 8, 525, `\`\`${documento.bio}\`\``, 725);
+                            img.print(letra2, 45, 85, `${Number(documento.rep).toLocaleString()}`);
+                            img.print(letra2, 185, 85, `${Number(documento.star).toLocaleString()}`);
+                            img.print(letra, 115, 23, `${Number(documento.aboboras).toLocaleString()}`);
+                            img.print(letra2, 440, 30, `\`\`${documento.bio}\`\``, 500);
                             //img.print(letr, 200, 23, documento.xp + "/" +  Math.ceil(pudim * 400) + " (" + parseInt(documento.xp/(pudim *400 )*100) + "%)")  
                             img.getBuffer(Jimp.MIME_PNG, (erri, buffer) => {
-                              message.channel.send(``, new Discord.Attachment(buffer, 'PerfilSys.png'));
+                             message.channel.startTyping();
+                             message.channel.send(``, new Discord.Attachment(buffer, 'PrSys_CardPerfil.png'));
                             });
                          
                         });
@@ -129,6 +131,7 @@ else badge2 = `${documento.badgep2}`;
                         containers: 0,
                         emerald: 0,
                         goldbox: 0,
+                        aboboras: 0,
                         star: 0,
                         backbalance: 'https://cdn.discordapp.com/attachments/442346665052209153/469407730797641738/SysopLogoLight.png',
                         profile_background: 'https://cdn.discordapp.com/attachments/442346665052209153/469407730797641738/SysopLogoLight.png',
