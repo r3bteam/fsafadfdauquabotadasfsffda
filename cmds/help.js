@@ -54,7 +54,7 @@ case 'registros': {
     
     message.channel.send(`OK ${message.author}! lhe enviei meus comandos de Registro em seu privado.`);
         const embed = new Discord.RichEmbed()
-        .setTitle(`Comandos de Administração/Moderação`)
+        .setTitle(`Comandos de Registro`)
         .setDescription(`**Prefixo:** ${sysop.setprefix}\n\n
 \`>>\` **setregistro** - Para configurar as tags de registros.
 \`>>\` **registra** - Para registrar pessoa.
@@ -69,7 +69,7 @@ case 'registros': {
     
     message.channel.send(`OK ${message.author}! lhe enviei meus comandos de Economia em seu privado.`);
         const embed = new Discord.RichEmbed()
-        .setTitle(`Comandos de Administração/Moderação`)
+        .setTitle(`Comandos de Economia`)
         .setDescription(`**Prefixo:** ${sysop.setprefix}\n\n
 \`>>\` **balance** - Para ver seu balance de economia.
 \`>>\` **profile** - Para visualizar seu profile.
@@ -96,7 +96,7 @@ case 'registros': {
     
     message.channel.send(`OK ${message.author}! lhe enviei meus comandos de Sociais em seu privado.`);
         const embed = new Discord.RichEmbed()
-        .setTitle(`Comandos de Administração/Moderação`)
+        .setTitle(`Comandos de Social`)
         .setDescription(`**Prefixo:** ${sysop.setprefix}\n\n
 \`>>\` **avatar** - Para visualizar avatar de um usuário.
 \`>>\` **div** - Veja quantas pessoas você recrutou no servidor.
@@ -117,7 +117,7 @@ case 'registros': {
     
     message.channel.send(`OK ${message.author}! lhe enviei meus comandos de Músicas em seu privado.`);
         const embed = new Discord.RichEmbed()
-        .setTitle(`Comandos de Administração/Moderação`)
+        .setTitle(`Comandos de Música`)
         .setDescription(`**Prefixo:** ${sysop.setprefix}\n\n
 \`>>\` **play** - Para adicionar músicas por nome e ou URL YouTube.
 \`>>\` **pause** - Para pausar a música.
