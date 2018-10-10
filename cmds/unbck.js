@@ -20,7 +20,7 @@ exports.run = (Sysop, message, args) => {
             : null;
 
 if (!block) return message.reply('Mencione alguém ou especifique um ID');
-let user = client.users.has(block) ? client.users.get(block) : null;
+let user = Sysop.users.has(block) ? Sysop.users.get(block) : null;
 if (user) {
     database.Bloqueio.findOne({"_id":user.id},function(erro,documento){
         
