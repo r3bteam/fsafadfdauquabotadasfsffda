@@ -24,6 +24,8 @@ Sysop.on("message", message => {
                 return server;
 	};
 	
+        createAccount(message.guild.id);
+	
     db.Guilds.findOne({"_id": message.guild.id}).then(servidor => {
 
         if (message.content.startsWith(servidor.setprefix)) {
@@ -53,7 +55,7 @@ Sysop.on("message", message => {
             })
         
         } else {
-            if(message.content.includes(`<@${Sysop.user.id}>`) || message.content.includes(`<@!${Sysop.user.id}>`)) {
+            
                  const embed = new Discord.RichEmbed()
                  .setAuthor(message.author.username+'#'+message.author.discriminator)
                  .setThumbnail(message.author.avatarURL)
