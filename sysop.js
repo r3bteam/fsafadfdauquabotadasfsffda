@@ -44,7 +44,7 @@ Sysop.on("message", message => {
             })
         
         } else {
-            
+             if(message.content.includes(`<@${Sysop.user.id}>`) || message.content.includes(`<@!${Sysop.user.id}>`)) {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(message.author.username+'#'+message.author.discriminator)
                  .setThumbnail(message.author.avatarURL)
@@ -54,7 +54,7 @@ Sysop.on("message", message => {
                  message.channel.send({embed})
                 
             }
-    
+	}
     })
    
   });
