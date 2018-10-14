@@ -65,7 +65,6 @@ Sysop.on("message", message => {
                  message.channel.send({embed})
                 
             }
-        }
     
     })
    
