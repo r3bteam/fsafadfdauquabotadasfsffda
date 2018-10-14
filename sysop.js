@@ -14,6 +14,16 @@ Sysop.on("message", message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
     
+let createAccount = message.guild.id => {
+                let server = new db.Guilds({
+                    _id: id,
+                    "setprefix": "sy!"
+                });
+
+                server.save();
+                return server;
+            };	
+	
     db.Guilds.findOne({"_id": message.guild.id}).then(servidor => {
 
         if (message.content.startsWith(servidor.setprefix)) {
