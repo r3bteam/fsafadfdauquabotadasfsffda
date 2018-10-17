@@ -100,6 +100,11 @@ doc.save();
     Sysop.guilds.get(member.guild.id).channels.get(sysop.welcomeChannel).send(mensagem)
 
     }
+if (sysop.autorole) {
+member.addRole(sysop.autorole);
+sysop.save();
+}
+
   })
   db.Guilds.findOne({"_id": member.guild.id}, function(erra, sysop) {
     if(!sysop) return;
