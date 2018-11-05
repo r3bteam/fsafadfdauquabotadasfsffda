@@ -4,12 +4,6 @@ const db = require('./database.js');
 const Sysop = new Discord.Client();
 const fs = require('fs');
 
-Sysop.on("error", (e) => console.log(e));
-
-Sysop.on("warn", (e) => console.log(e));
-
-Sysop.on("debug", (e) => console.log(e));
-
 Sysop.on("message", message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
