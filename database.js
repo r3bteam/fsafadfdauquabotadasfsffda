@@ -1,11 +1,9 @@
-const config  = require("./env.json");
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
-mongoose.connect(process.env.DB, {
-    useMongoClient: true
-}, (err) => {
-    if (err) return console.log("Erro ao conectar no database!");
-    console.log("Sucesso ao conectar-se no banco de dados!");
+const env = require("./env.json");
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema
+mongoose.connect(process.env.DB, { useNewUrlParser: true }, (err) => {
+  if (err) return console.log('Erro ao conectar no database!');
+  console.log('Conectado ao database!');
 });
 
 var User = new Schema({
@@ -14,26 +12,33 @@ var User = new Schema({
     },
      level: {
         type: Number,
-        default: 0
+        default: 0,
+    },
+    lock: {
+      type: Boolean,
+      default: false,
+    },
+    adv: {
+        type: Number,
+        default: 0,
+    },
+    adv_motivos: {
+        type: Array,
+        default: [],
+    },
+    aboboras: {
+      type: Number,
+      default: 0,
     },
     guildlevel: {
         type: Number,
-        default: 0
+        default: 0,
     },
     nexDay: {
        type: Number,
         default: 0,
     },
-    tempneg: {
-        type: Number,
-        default: 0,
-    },
     star: {
-        type: Number,
-        default: 0,
-        
-    },
-    aboboras: {
         type: Number,
         default: 0,
         
@@ -56,35 +61,39 @@ var User = new Schema({
     },
     xp: {
         type: Number,
-        default: 0
+        default: 0,
     },
     temprep: {
+        type: Number,
+        default: 0,
+    },
+      tempneg: {
         type: String,
         default: 0,
     },
      guildxp: {
         type: Number,
-        default: 0
+        default: 0,
     },
     coins: {
         type: Number,
-        default: 0
+        default: 0,
     },
     rubys: {
         type: Number,
-        default: 0
+        default: 0,
     },
     emerald: {
         type: Number,
-        default: 0
+        default: 0,
     },
     containers: {
         type: Number,
-        default: 0
+        default: 0,
     },
     goldbox: {
         type: Number,
-        default: 0
+        default: 0,
     },
      lootboxr: {
         type: Number,
@@ -136,7 +145,7 @@ var User = new Schema({
     },
     rep: {
         type: Number,
-        default: 0
+        default: 0,
     },
       emblema: {
         type: String,
@@ -318,6 +327,26 @@ var User = new Schema({
         default: 0,
         
     },
+     atraente: {
+        type: Number,
+        default: 0,
+        
+    },
+     atraenteTime: {
+        type: Number,
+        default: 0,
+        
+    },
+     genio: {
+        type: Number,
+        default: 0,
+        
+    },
+     genioTime: {
+        type: Number,
+        default: 0,
+        
+    },
     batalhar: {
         type: Number,
         default: 0,
@@ -327,6 +356,23 @@ var User = new Schema({
         type: Array,
         default: [],
         
+    },
+    nicks: {
+        type: Array,
+        default: [],
+        
+    },
+    credit: {
+      type: Boolean,
+      default: false,
+    },
+    back: {
+       type: String,
+        default: '',
+    },
+    skin: {
+       type: String,
+        default: '',
     },
      balance_background: {
         type: String,
@@ -356,13 +402,85 @@ var Guilds = new Schema({
         type: String,
         default: 'sy!',
     },
+    BAN: {
+        type: String,
+        default: '',
+    },
+    contadorCOR: {
+      type: String,
+      default: '',
+    },
+    usernames: {
+    type: Boolean,
+    default: false,
+    },
+    prefixo: {
+        type: String,
+        default: '-',
+    },
+    lang: {
+        type: String,
+        default: 'pt-BR',
+    },
+    setlang: {
+        type: String,
+        default: 'BR',
+    },
+    contadorE: {
+        type: String,
+        default: '',
+    },
+    bkchannel: {
+        type: Array,
+        default: [],
+    },
     invites: {
+        type: String,
+        default: '',
+    },
+    logg_MD: {
+        type: String,
+        default: '',
+    },
+    logg_MUP: {
+        type: String,
+        default: '',
+    },
+    logg_mGA: {
+        type: String,
+        default: '',
+    },
+    logg_mGR: {
+        type: String,
+        default: '',
+    },
+    logg_mGB: {
+        type: String,
+        default: '',
+    },
+     logg_banAction: {
+        type: String,
+        default: '',
+    },
+    logg_wordsAction: {
+        type: String,
+        default: '',
+    },
+    logg_desbanAction: {
+        type: String,
+        default: '',
+    },
+    logg_userinfoAction: {
         type: String,
         default: '',
     },
     contador: {
       type: String,
       default: '',
+    },
+    td: {
+      type: Boolean,
+      default: false,
     },
     animado: {
       type: String,
@@ -420,9 +538,38 @@ var Guilds = new Schema({
       type: Boolean,
       default:  false,
     },
+    convitesES: {
+      type: Boolean,
+      default:  false,
+    },
+    invs: {
+      type: Boolean,
+      default:  false,
+    },
+    raid: {
+      type: Boolean,
+      default:  false,
+    },
+     exlinks: {
+      type: Boolean,
+      default:  false,
+    },
+    AFk: {
+      type: Boolean,
+      default:  false,
+    },
+    AFKR: {
+      type: String,
+      default:  '',
+    },
+    
     filterPrintscreen: {
       type: Boolean,
       default: false,
+    },
+    filterWords: {
+      type: Array,
+      default: [],
     },
     sugest: {
       type: String,
@@ -545,6 +692,10 @@ var Guilds = new Schema({
       default: '',
     },
     textoreact: {
+      type: String,
+      default: '',
+    },
+    texto: {
       type: String,
       default: '',
     },
@@ -678,20 +829,20 @@ var Guilds = new Schema({
     },
 });
 
-
-
 var Ship = new Schema({
     nome1: {
-        type: String
+        type: String,
+        default: "",
     },
     nome2: {
-        type: String
+        type: String,
+        default: "",
     },
     porcentagem: {
-        type: String
+        type: String,
+        default: "",
     },
 });
-
 
 var Striker = new Schema({
     _id: {
@@ -755,6 +906,73 @@ var Backup = new Schema({
     },
 });
 
+var Cla = new Schema({
+  _id: {
+    type: String
+  },
+  dono: {
+    type: String
+  },
+  foto: {
+    type: String,
+    default: 'https://cdn.discordapp.com/avatars/500564602699120670/454b5ebd0cc59614553831eb7c938f27.png?size=2048'
+  },
+  proteção: {
+    type: Number,
+    default: 0
+  },
+  staffs: {
+    type: Array,
+    default: []
+  },
+  membros: {
+    type: Array,
+    default: []
+  },
+  trofeus: {
+    type: Number,
+    default: 0
+  },
+  liga: {
+    type: String,
+    default: 'Bronze 3'
+  },
+  vitorias: {
+    type: Number,
+    default: 0
+  },
+  derrotas: {
+    type: Number,
+    default: 0
+  },
+  espera: {
+    type: Array,
+    default: []
+  }
+})
+
+var Genre =  new Schema({
+    _id: {
+        type: String,
+    },
+    genero: {
+        type: String,
+        default: '',
+    },
+    masculino: {
+        type: String,
+        default: '',
+    },
+    feminino: {
+        type: String,
+        default: '',
+    },
+    nao_binario: {
+        type: String,
+        default: '',
+    },
+})
+
 var Guilds = mongoose.model("Guilds", Guilds);
 var Users = mongoose.model("Users", User);
 var Ships = mongoose.model("Ships", Ship);
@@ -762,7 +980,8 @@ var Strikers = mongoose.model("Strikers", Striker);;
 var Bloqueio = mongoose.model("Bloqueio", Bloqueio);
 var Registrador = mongoose.model("Registrador", Registrador);
 var Backup = mongoose.model("Backup", Backup);
-
+var Clas = mongoose.model("Clas", Cla);
+var Genre = mongoose.model("Genre", Genre);
 
 
 exports.Bloqueio = Bloqueio;
@@ -772,5 +991,7 @@ exports.Guilds = Guilds;
 exports.Striker = Strikers;
 exports.Registrador = Registrador;
 exports.Backup = Backup;
+exports.Clas = Clas;
+exports.Genre = Genre;
 
 
