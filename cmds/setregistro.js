@@ -1,36 +1,191 @@
-const Discord = require("discord.js");
-const database = require("../database.js");
-
-exports.run = (Sysop, message, suffix) => {
-
-if (!message.member.hasPermission('MANAGE_ROLES')) 
-return message.reply(':x: Desculpe, este comando está disponível apenas para cargos de Gerenciamento de cargos no servidor.');   
-
-const db = require("../database.js")
-db.Guilds.findOne({"_id": message.guild.id }, function(erra, sysop) {
-
-
 const Discord = require("discord.js")
-const embed = new Discord.RichEmbed()
-.setTitle(`Config Registros | Modo de uso:`)
-.setAuthor(message.author.username+'#'+message.author.discriminator)
-.setDescription(`Setregistro é o comando para definir funções do outro comando de Registro. Use os parâmetros necessários para definir.\n\nComo usar:\n\`${sysop.setprefix}setregistro <parâmetro>\`\n\n\`Parâmetros:\` masculino/feminino/staff/membro\n\n\`Exemplo:\` ${sysop.setprefix}setregistro masculino @cargo/role\n\n**Informações** digite ${sysop.setprefix}setregistro info.`)
-.setThumbnail(message.author.avatarURL)
-.setFooter(message.guild.name)
-.setColor('#15ffaf');
+const db = require("../database.js");
 
- if(!suffix[0]) return  message.channel.send({embed}) 
+exports.run = (Sysop, message, args) => {
+ 
+var um = args.slice(1).join(' ')
+var dois = args.slice(2).join(' ')
+var tres = args.slice(3).join(' ')
+var quatro = args.slice(4).join(' ')
+ 
     
-    
-    if (!suffix)
-    return message.channel.send(`${message.author} use sy!setregistro help`);
-    
+ if(!message.member.hasPermission("MANAGE_ROLES"))
+ return message.channel.send(`<:kryptonX:505995195024932877> | ${message.author} é necessário que você tem permissão de Gerenciamento de Cargos para utilizar este comando.`)
+ 
+ db.Guilds.findOne({
+     "_id": message.guild.id },
+     function (erro, sysop) {
+         
+        if(sysop) {
+         
+ var embed = new Discord.RichEmbed()
+ .setAuthor(`Ajuda | Registro`,message.guild.iconURL)
+ .setDescription(`Configure os cargos para utilizar o sistema de registro.`)
+ .addField(`${sysop.prefixo}registrador masculino <@cargomenção>`,`Defina o cargo masculino do servidor.`,false)
+ .addField(`${sysop.prefixo}registrador desativar masculino`, `Desativará e resetará o cargo masculino do servidor`,false)
+ .addField(`${sysop.prefixo}registrador feminino <@cargomenção>`,`Defina o cargo feminino do servidor.`,false)
+ .addField(`${sysop.prefixo}registrador desativar feminino`, `Desativará e resetará o cargo feminino do servidor`,false)
+ .addField(`${sysop.prefixo}registrador staff <@cargomenção>`,`Defina o cargo para registrador no qual apenas usuários com o cargo definido conseguirá registrar membros do servidor.`,false)
+ .addField(`${sysop.prefixo}registrador desativar staff`,`Desativará e resetará o cargo registrador do servidor.`,false)
+ .addField(`${sysop.prefixo}registrador membro <@cargomenção>`,`Defina o cargo para membros no qual será necessário para relizar os registros. A função também ativa o autocargo do servidor.`,false)
+ .addField(`${sysop.prefixo}registrador desativar membro`,`Desativará e resetará o cargo membro do servidor.\n<:warn:506568193154744360> **Cuidado!** Desativando o cargo membro do sistema de registro, desativará também o autocargo do servidor`,false)
+ .addField(`${sysop.prefixo}registrador painel`,`Mostrará o painel de configurações de cargo do sistema de registro.`,false)
+ .setFooter(`Requisitado por ${message.author.tag} - ID ${message.author.id}`)
+ .setColor('#f3052f');
+ if(!args[0]) return message.channel.send({embed});        
+         
+let rol1;
+let rol2;
+let rol3;
+let rol4;      
+        
+
+ if (!sysop.man) rol1 = '`<:kryptonX:505995195024932877> | Cargo Masculino não definido ainda.';
+ else rol1 = `<:kryptonC:505995271562592257> | <@&${sysop.man}>`
+ if (!sysop.girl) rol2 = '`<:kryptonX:505995195024932877> | Cargo Feminino não definido ainda.';
+ else rol2 = `<:kryptonC:505995271562592257> | <@&${sysop.girl}>`
+ if (!sysop.staffer) rol3 = '`<:kryptonX:505995195024932877> | Cargo Staff não definido ainda.';
+ else rol3 = `<:kryptonC:505995271562592257> | <@&${sysop.staffer}>`
+ if (!sysop.autorole) rol4 = '`<:kryptonX:505995195024932877> |  Cargo Membros não definido ainda.';
+ else rol4 = `<:kryptonC:505995271562592257> | <@&${sysop.autorole}>`
+ 
+       
+  switch (args[0]) {
+	case 'masculino' : {
+        
+     if (!message.mentions.roles.first()) {
+     if (sysop && sysop.man)   
+     return message.channel.send('Cargo masculino definido para:  <@&' + sysop.man + '>');
+     else
+     return message.channel.send(`<:warn:506568193154744360> | ${message.author} defina o cargo masculino do servidor.`);
+     } else { 
+     if (!sysop) sysop = {};   
+     sysop.man = message.mentions.roles.first().id;
+     sysop.save();
+     return message.channel.send(`<:kryptonC:505995271562592257> | ${message.author} você definiu <@&${message.mentions.roles.first().id}> como cargo masculino do servidor`);
+
+
+          }
+	}
+          
+case 'feminino' : {
+        
+     if (!message.mentions.roles.first()) {
+     if (sysop && sysop.girl)   
+     return message.channel.send('Cargo feminino definido para:  <@&' + sysop.girl + '>');
+     else
+     return message.channel.send(`<:warn:506568193154744360> | ${message.author} defina o cargo feminino do servidor.`);
+     } else { 
+     if (!sysop) sysop = {};   
+     sysop.girl = message.mentions.roles.first().id;
+     sysop.save();
+     return message.channel.send(`<:kryptonC:505995271562592257> | ${message.author} você definiu <@&${message.mentions.roles.first().id}> como cargo feminino do servidor`);
+
+
+          }
 	    
- database.Guilds.findOne({"_id": message.guild.id }, function(erro, documento) { 
-     
-if (!documento) {
+	}   
+	
+	
+	case 'registrador' : {
+        
+     if (!message.mentions.roles.first()) {
+     if (sysop && sysop.staffer)   
+     return message.channel.send('Cargo registrador definido para:  <@&' + sysop.staffer + '>');
+     else
+     return message.channel.send(`<:warn:506568193154744360> | ${message.author} defina o cargo registrador do servidor.`);
+     } else { 
+     if (!sysop) sysop = {};   
+     sysop.staffer = message.mentions.roles.first().id;
+     sysop.save();
+     return message.channel.send(`<:kryptonC:505995271562592257> | ${message.author} você definiu <@&${message.mentions.roles.first().id}> como cargo registrador do servidor`);
 
-            var pessoa = new database.Guilds({
+
+          }
+	    
+	}  
+	
+	case 'membro' : {
+        
+     if (!message.mentions.roles.first()) {
+     if (sysop && sysop.autorole)   
+     return message.channel.send('Cargo registrador definido para:  <@&' + sysop.staffer + '>');
+     else
+     return message.channel.send(`<:warn:506568193154744360> | ${message.author} defina o cargo membro do servidor.`);
+     } else { 
+     if (!sysop) sysop = {};   
+     sysop.autorole = message.mentions.roles.first().id;
+     sysop.save();
+     return message.channel.send(`<:kryptonC:505995271562592257> | ${message.author} você definiu <@&${message.mentions.roles.first().id}> como cargo membro/autocargo do servidor`);
+
+
+          }
+	    
+	}  
+	
+	case 'painel': {
+	    
+   var selfrole = new Discord.RichEmbed();
+   selfrole.setAuthor(`Registador | Painel`,message.guild.iconURL)
+   selfrole.setDescription('Informações de cargos para **Registro**');
+   selfrole.addField('Cargo Masculino:', `${rol1}`, false);
+   selfrole.addField('Cargo Feminino', `${rol2}`, false);
+   selfrole.addField('Cargo Registador', `${rol3}`, false);
+   selfrole.addField('Cargo Membro', `${rol4}`, false);
+   selfrole.setFooter('sy!setregistro help');
+   selfrole.setFooter(`Requisitado por ${message.author.tag} - ID ${message.author.id}`)
+   selfrole.setColor('#f3052f');
+   message.channel.send({embed: selfrole});
+
+	}
+  }
+  
+  
+  
+if (!um.length < 1) {     
+if (message.content.startsWith(sysop.prefixo + 'registrador desativar masculino')) {
+ 
+sysop.man = '';
+sysop.save();
+message.channel.send(`Ok ${message.author}! Você resetou  cargo masculino do servidor.`)
+}
+   
+  }
+  
+ if (!dois.length < 2) {     
+if (message.content.startsWith(sysop.prefixo + 'registrador desativar feminino')) {
+ 
+sysop.girl = '';
+sysop.save();
+message.channel.send(`Ok ${message.author}! Você resetou  cargo feminino do servidor.`)
+}
+   
+  } 
+  
+  if (!tres.length < 3) {     
+if (message.content.startsWith(sysop.prefixo + 'registrador desativar registrador')) {
+ 
+sysop.staffer = '';
+sysop.save();
+message.channel.send(`Ok ${message.author}! Você resetou  cargo registrador do servidor.`)
+}
+   
+  }
+  
+  if (!quatro.length < 4) {     
+if (message.content.startsWith(sysop.prefixo + 'registrador desativar membro')) {
+ 
+sysop.autorole = '';
+sysop.save();
+message.channel.send(`Ok ${message.author}! Você resetou  cargo membro do servidor.`)
+}
+   
+  }
+  
+      
+        } else {
+        
+            var servidor = new db.Guilds({
                 _id: message.guild.id,
                 autorole: '',
                 sugestao: '',
@@ -46,101 +201,13 @@ if (!documento) {
                 man: '',
                 staffer: '',
             });
-            pessoa.save();
-            message.channel.send(`<:xguardian:476061993368027148> ${message.author}, Servidor não registrado, use o comando novamente.`);
-} else {
+            servidor.save();
+            message.channel.send(`<:alert:506568192521535498> ${message.author}, registrei o servidor. Use novamente o comando`);
 
-let rol1;
-let rol2;
-let rol3;
-let rol4;
-
-
- if (!documento.man) rol1 = '`⛔` Cargo Masculino não definido ainda.';
- else rol1 = `<@&${documento.man}>`
- if (!documento.girl) rol2 = '`⛔` Cargo Feminino não definido ainda.';
- else rol2 = `<@&${documento.girl}>`
- if (!documento.staffer) rol3 = '`⛔` Cargo Staff não definido ainda.';
- else rol3 = `<@&${documento.staffer}>`
- if (!documento.autorole) rol4 = '`⛔` Cargo Membros não definido ainda.';
- else rol4 = `<@&${documento.autorole}>`
-
-    switch (suffix[0]) {
-	case 'masculino' : {
         
-     if (!message.mentions.roles.first()) {
-     if (documento && documento.man)   
-     return message.channel.send('Cargo masculino definido para:  <@&' + documento.man + '>');
-     else
-     return message.channel.send('Defina um cargo para função masculino do seu registro!');
-     } else { 
-     if (!documento) documento = {};   
-     documento.man = message.mentions.roles.first().id;
-     documento.save();
-     return message.channel.send('Cargo masculino definido!');
-
-}}
-
-
-case 'feminino' : {
         
-     if (!message.mentions.roles.first()) {
-     if (documento && documento.girl)   
-     return message.channel.send('Cargo feminino definido para:  <@&' + documento.girl + '>');
-     else
-     return message.channel.send('Deefina um caro para função feminino do seu registro!');
-     } else { 
-     if (!documento) documento = {};   
-     documento.girl = message.mentions.roles.first().id;
-     documento.save();
-     return message.channel.send('Cargo feminino definido.');
-
-}}
-
-case 'staff' : {
+        }
         
-     if (!message.mentions.roles.first()) {
-     if (documento && documento.staffer)   
-     return message.channel.send('Cargo Staff definido para:  <@&' + documento.staffer + '>');
-     else
-     return message.channel.send('Defina um cargo para função staff do seu registro!');
-     } else { 
-     if (!documento) documento = {};   
-     documento.staffer = message.mentions.roles.first().id;
-     documento.save();
-     return message.channel.send('Cargo Staff definido.');
-
-}}
-
-case 'membro' : {
-        
-     if (!message.mentions.roles.first()) {
-     if (documento && documento.autorole)   
-     return message.channel.send('Cargo membro definido para:  <@&' + documento.autorole + '>');
-     else
-     return message.channel.send('Defina um cargo para função membro do seu registro!');
-     } else { 
-     if (!documento) documento = {};   
-     documento.autorole = message.mentions.roles.first().id;
-     documento.save();
-     return message.channel.send('Cargo membro definido. `OBS` A função membro, ativa também a autorole do servidor.');
-
-}}}
-
-let razao = suffix[0]
-if(razao[0] == "info"){ 
-   var selfrole = new Discord.RichEmbed();
-   selfrole.setThumbnail(message.guild.iconURL);
-   selfrole.setDescription('Informações de cargos para **Registro**');
-   selfrole.addField('Cargo Masculino:', `${rol1}`, false);
-   selfrole.addField('Cargo Feminino', `${rol2}`, false);
-   selfrole.addField('Cargo Staff', `${rol3}`, false);
-   selfrole.addField('Cargo Membro', `${rol4}`, false);
-   selfrole.setFooter('sy!setregistro help');
-   selfrole.setColor(0x4959e9);
-   message.channel.send({embed: selfrole});
- }
-}
-
-});
- }); };
+     });
+ 
+};
