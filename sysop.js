@@ -182,7 +182,7 @@ Sysop.guilds.get(member.guild.id).channels.get(sysop.animado).edit({ topic: `<a:
 }})
 });
   
-Sysop.on("message", message => {
+/*Sysop.on("message", message => {
 if (message.guild) {
 db.Guilds.findOne({"_id": message.guild.id}, function(erra, sysop) {
 if (sysop) {
@@ -252,7 +252,7 @@ if (sysop && sysop.convites && message.content.search('discord.gg') > -1) {
 }}
 });
 }
-});
+});*/
   
 Sysop.on('guildMemberRemove', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
