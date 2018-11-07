@@ -256,14 +256,14 @@ if (sysop && sysop.convites && message.content.search('discord.gg') > -1) {
   
 Sysop.on('guildMemberRemove', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
-let preto = membross.split('').map(i =>['<:zero6:509041031199588377>','<:um6:509041030784614401>','<:dois6:509041027777036288>','<:tres6:509041030692077568>','<:quatro6:509041028607770644>','<:cinco6:509041027567321119>','<:seis6:509041028674879488>','<:sete6:509041030738477074>','<:oito6:509041028154785815>','<:nove9:509041028146135050>'][i]).join('')
-Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${preto} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
+var verde = membross.split('').map(i =>['<:zero3:507397133029081099>','<:um3:507397173961293844>','<:dois3:507397561519177729>','<:tres3:507397215225118720>','<:quatro3:507397257893642240>','<:cinco3:507397289074229249>','<:seis3:507397343272763418>','<:sete3:507397393969577994>','<:oito3:507397435711160340>','<:nove3:507397475032760320>'][i]).join('')
+Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${verde} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
 });
 
 Sysop.on('guildMemberAdd', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
-let preto = membross.split('').map(i =>['<:zero6:509041031199588377>','<:um6:509041030784614401>','<:dois6:509041027777036288>','<:tres6:509041030692077568>','<:quatro6:509041028607770644>','<:cinco6:509041027567321119>','<:seis6:509041028674879488>','<:sete6:509041030738477074>','<:oito6:509041028154785815>','<:nove9:509041028146135050>'][i]).join('')
-Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${preto} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
+var verde = membross.split('').map(i =>['<:zero3:507397133029081099>','<:um3:507397173961293844>','<:dois3:507397561519177729>','<:tres3:507397215225118720>','<:quatro3:507397257893642240>','<:cinco3:507397289074229249>','<:seis3:507397343272763418>','<:sete3:507397393969577994>','<:oito3:507397435711160340>','<:nove3:507397475032760320>'][i]).join('')
+Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${verde} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
 });
 
 Sysop.on("ready", () => {
