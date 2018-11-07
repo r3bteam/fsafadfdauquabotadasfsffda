@@ -256,14 +256,14 @@ if (sysop && sysop.convites && message.content.search('discord.gg') > -1) {
   
 Sysop.on('guildMemberRemove', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
-var roxo = membross.split('').map(i =>['<:zero4:507397133419282432>','<:um4:507397174024208397>','<:dois4:507397560772722690>','<:tres4:507397213585145858>','<:quatro5:507397258036117504>','<:cinco4:507397289388539919>','<:seis4:507397343117836309>','<:sete4:507397394040750090>','<:oito4:507397435593719809>','<:nove4:507397475162652677>'][i]).join('')
-Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${roxo} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
+var vermelho = membross.split('').map(i =>['<:zero1:507397133171949579>','<:um1:507397173680537611>','<:dois1:507397560772722699>','<:tres1:507397213367042049>','<:quatro1:507397257759293451>','<:cinco1:507397289158115329>','<:seis1:507397343084281856>','<:sete1:507397393818320906>','<:oito1:507397435673280512>','<:nove1:507397474449621004>'][i]).join('')
+Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${vermelho} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
 });
 
 Sysop.on('guildMemberAdd', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
-var roxo = membross.split('').map(i =>['<:zero4:507397133419282432>','<:um4:507397174024208397>','<:dois4:507397560772722690>','<:tres4:507397213585145858>','<:quatro5:507397258036117504>','<:cinco4:507397289388539919>','<:seis4:507397343117836309>','<:sete4:507397394040750090>','<:oito4:507397435593719809>','<:nove4:507397475162652677>'][i]).join('')
-Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${roxo} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
+var vermelho = membross.split('').map(i =>['<:zero1:507397133171949579>','<:um1:507397173680537611>','<:dois1:507397560772722699>','<:tres1:507397213367042049>','<:quatro1:507397257759293451>','<:cinco1:507397289158115329>','<:seis1:507397343084281856>','<:sete1:507397393818320906>','<:oito1:507397435673280512>','<:nove1:507397474449621004>'][i]).join('')
+Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${vermelho} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
 });
 
 Sysop.on("ready", () => {
