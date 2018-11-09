@@ -68,7 +68,7 @@ message.guild.members.get(pp1).removeRole(message.member.guild.roles.find(un => 
                     doc2.hm += 1;
                     doc2.save();
                     let user =  message.mentions.users.first() ? message.mentions.users.first() : message.author;
-                    let roles = user.roles.map(roles => `${roles}`).join(', ');
+                    let roles = user1.roles.map(roles => `${roles}`).join(', ');
                     const embed = new Discord.RichEmbed()
                     .setAuthor(user.username, user.avatarURL)
                     .setThumbnail(user.avatarURL)
@@ -112,7 +112,7 @@ message.guild.members.get(pp1).removeRole(message.member.guild.roles.find(un => 
                     documento.mh += 1 ;
                     documento.save();
                     let user =  message.mentions.users.first() ? message.mentions.users.first() : message.author;
-                    let roles = user.roles.map(roles => `${roles}`).join(', ');
+                    let roles = user1.roles.map(roles => `${roles}`).join(', ');
                     const embed = new Discord.RichEmbed()
                     .setAuthor(user.username, user.avatarURL)
                     .setThumbnail(user.avatarURL)
