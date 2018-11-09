@@ -68,12 +68,14 @@ message.guild.members.get(pp1).removeRole(message.member.guild.roles.find(un => 
                     doc2.hm += 1;
                     doc2.save();
                     let user =  message.mentions.users.first() ? message.mentions.users.first() : message.author;
+                    let roles = user.roles.map(roles => `${roles}`).join(', ');
                     const embed = new Discord.RichEmbed()
                     .setAuthor(user.username, user.avatarURL)
                     .setThumbnail(user.avatarURL)
                     .setDescription(`<:sucesso:506651090272649217> Registro bem sucedido!`)
                     .addField(`:star2: Registrador (a):`,`<@${message.author.id}>`)
                     .addField(`:blue_heart: Usuário Registrado:`, `<@${user1.id}>`)
+                    .addField(`📋 Tags de registro`,roles,false)
                     .setTimestamp()
                     .setFooter(server.name)
                     .setColor('#97ff4a');
@@ -110,12 +112,14 @@ message.guild.members.get(pp1).removeRole(message.member.guild.roles.find(un => 
                     documento.mh += 1 ;
                     documento.save();
                     let user =  message.mentions.users.first() ? message.mentions.users.first() : message.author;
+                    let roles = user.roles.map(roles => `${roles}`).join(', ');
                     const embed = new Discord.RichEmbed()
                     .setAuthor(user.username, user.avatarURL)
                     .setThumbnail(user.avatarURL)
                     .setDescription(`<:sucesso:506651090272649217> Registro bem sucedido!`)
                     .addField(`:star2: Registrador (a):`,`<@${message.author.id}>`)
                     .addField(`:heart: Usuário Registrado:`, `<@${user1.id}>`)
+                    .addField(`📋 Tags de registro`,roles,false)
                     .setFooter(server.name)
                     .setTimestamp()
                     .setColor('#f30052');
