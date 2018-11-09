@@ -6,6 +6,8 @@ var moment = require('moment'); moment.locale('pt-BR');
 exports.run = (Sysop, message, args) => {
 message.delete(1000);
 
+var atapo = args.slice(9).join(' ')    
+    
 let p1 =   message.guild.id+message.author.id;
 
     let pp1 = message.mentions.users.first()
@@ -160,7 +162,38 @@ message.guild.members.get(pp1).removeRole(message.member.guild.roles.find(un => 
             });
             pessoa.save();
             message.channel.send(`<:xguardian:476061993368027148> ${message.author}, Servidor não registrado, use o comando novamente.`);
-                
+         
+if (!atapo.length < 9) {     
+if (message.content.startsWith(doc.setprefix + 'resetar registros')) {
+
+if(!message.guild.owner)
+return message.channel.send(`Opa ${message.author}, apenas o proprietário do servidor pode usar este comando!`)
+    
+ let pp1 = message.mentions.users.first()
+
+    ? message.mentions.users.first().id 
+
+    : args
+    ? args[0]
+    : null;
+    if(!pp1) 
+    return message.channel.send(`${message.author} mencione um usuário ou ensira um id.`)    
+    
+    db.Guilds.findOne({
+        "_id": message.guild.id+pp1},
+            function (erro, doc) { 
+    
+        doc.hm = 0
+        doc.mh = 0
+        message.channel.send(`Ok ${message.author}! você resetou os registro de ${pp1}.`)
+        
+    });
+}
+    
+}
+   
+    
+    
         }
     });
 };
