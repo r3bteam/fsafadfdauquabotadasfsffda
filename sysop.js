@@ -257,13 +257,13 @@ if (sysop && sysop.convites && message.content.search('discord.gg') > -1) {
 Sysop.on('guildMemberRemove', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
 let preto = membross.split('').map(i =>['<:zero6:509041031199588377>','<:um6:509041030784614401>','<:dois6:509041027777036288>','<:tres6:509041030692077568>','<:quatro6:509041028607770644>','<:cinco6:509041027567321119>','<:seis6:509041028674879488>','<:sete6:509041030738477074>','<:oito6:509041028154785815>','<:nove9:509041028146135050>'][i]).join('')
-Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${preto} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
+Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${preto} https://discord.gg/ydUmv96 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
 });
 
 Sysop.on('guildMemberAdd', member => {
 let membross =  Sysop.guilds.get('421033417619275778').memberCount.toString()
 let preto = membross.split('').map(i =>['<:zero6:509041031199588377>','<:um6:509041030784614401>','<:dois6:509041027777036288>','<:tres6:509041030692077568>','<:quatro6:509041028607770644>','<:cinco6:509041027567321119>','<:seis6:509041028674879488>','<:sete6:509041030738477074>','<:oito6:509041028154785815>','<:nove9:509041028146135050>'][i]).join('')
-Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${preto} https://discord.gg/TF3ZnT8 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
+Sysop.guilds.get('421033417619275778').channels.get('457708655027027998').edit({ topic: `${preto} https://discord.gg/ydUmv96 <a:roda:495468760216502283> <a:pipoca:492169969237491714>`})
 });
 
 Sysop.on("ready", () => {
