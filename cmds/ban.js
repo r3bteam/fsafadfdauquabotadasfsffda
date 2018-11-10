@@ -29,10 +29,10 @@ if(filtro.some(p => message.content.includes(p))){
   return;
 }  
 
-let searchChannel = message.guild.channels.find(search => search.id === servidor.logg_banAction);
+let searchChannel = message.guild.channels.find(search => search.id === servidor.BAN);
 
 if (!searchChannel)
-return message.channel.send(`<:alert:506568192521535498> **|** Opa ${message.author}, nenhum canal para o informes dos banimentos foi definido. Use: ${servidor.prefixo}ajuda informes para ver mais informações.`);
+return message.channel.send(`<:alert:506568192521535498> **|** Opa ${message.author}, nenhum canal para o informes dos banimentos foi definido. Use: ${servidor.setprefix}ajuda informes para ver mais informações.`);
         
 
 let id = message.mentions.users.first()
