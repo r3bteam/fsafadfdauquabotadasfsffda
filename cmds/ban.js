@@ -87,7 +87,7 @@ return message.channel.send(`<:Nao:507411636664139786> **|** ${message.author}, 
     .addField(`**Motivo do ban:**`, `\`\`\`https\n${sysop}\`\`\``)
     .setThumbnail(user.avatarURL)
     .setColor('#ff0041')
-    Sysop.guilds.get(message.guild.id).channels.get(servidor.logg_banAction).send({embed1})
+    Sysop.guilds.get(message.guild.id).channels.get(servidor.BAN).send({embed1})
     user.send({embed1})
 }
 if (user) {
@@ -104,7 +104,7 @@ if (user) {
     .addField(`**Motivo do ban:**`, `\`\`\`https\n${sysop}\`\`\``)
     .setThumbnail(user.avatarURL)
     .setColor('#ff0041')
-    Sysop.guilds.get(message.guild.id).channels.get(servidor.logg_banAction).send({embed})
+    Sysop.guilds.get(message.guild.id).channels.get(servidor.BAN).send({embed})
     user.send({embed})
   
   message.channel.send(`<:Adaga:507454316479774730> **|** ${message.author} usuário banido com sucesso!`)
